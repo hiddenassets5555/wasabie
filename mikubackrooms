@@ -1448,7 +1448,19 @@ end
 
                 library:apply_theme(glow, "accent", "ImageColor3") 
             -- 
-        
+            
+            function cfg.toggle_watermark(bool) 
+                __holder.Visible = bool
+            end   
+
+            function cfg.set_menu_visibility(bool, pl)
+                WINDOW_PATH.Visible = bool
+
+                playerlist.Visible = flags["player_list"] and bool or false 
+            end 
+
+            return setmetatable(cfg, library)
+        end 
 
         function library:new_keybind(properties)
             local cfg = {text = properties.name or properties.text or "[mb1] aimbot (hold)"}
